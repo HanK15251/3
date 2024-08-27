@@ -1,0 +1,136 @@
+local RainbowLib =
+loadstring(game:HelpGet("https://raw.githubusercontent.com/YJY2022hh666/yjy/main/rainbow.ui.main.lua?token=GHSAT0AAAAAACESL5MYP6BL6PJ45CVEZRQEZFYXXUA",true))()
+local window = library:new("小江脚本")
+
+local creds = window:Tab("信息",'6035145364')
+
+local bin = creds:section("信息",true)
+
+    bin:Label("你的用户名："..game.Players.LocalPlayer.Character.Humanoid.Name)
+    bin:Label("你的注入器:"..identifyexecutor())
+
+local credits = creds:section("UI设置",true)
+
+    credits:Button("摧毁UI",function()
+        game:GetService("CoreGui")["frosty"]:Destroy()
+    end)
+
+    credits:Toggle("彩虹UI", "", false, function(state)
+        if state then
+        game:GetService("CoreGui")["frosty"].Main.Style = "DropShadow"
+        else
+            game:GetService("CoreGui")["frosty"].Main.Style = "Custom"
+        end
+    end)
+
+credits:Toggle("玩家加入游戏提示", "", false, function(state)
+        if state then
+    
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/boyscp/scriscriptsc/main/bbn.lua"))()
+    end)
+--------以上内容不要删，这行可以删
+local creds = window:Tab("这里是分类格式，就是菜单左侧的",'6035145364')
+
+local bin = creds:section("这里和上面一样",true)
+
+local credits = creds:section("这里还是和上面一样",true)
+
+    credits:Button("功能名",function()
+    空一行
+	脚本
+    end)
+
+credits:Toggle("功能名", "", false, function(state)--这个是一种功能，可以随意开关
+        if state then
+    空一行
+    脚本
+    end)
+    
+    local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))() 
+ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))() 
+
+ wait(1) 
+ Notification:Notify( 
+     {Title = "小江", Description = "正在加载"}, 
+     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"}, 
+     {Image = "http://www.roblox.com/asset/?id=4483345998", ImageColor = Color3.fromRGB(255, 84, 84)} 
+ ) 
+ wait(2) 
+ Notification:Notify( 
+     {Title = "小江", Description = "准备好了！"}, 
+     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "image"}, 
+     {Image = "http://www.roblox.com/asset/?id=4483345998", ImageColor = Color3.fromRGB(255, 84, 84)} 
+ )
+ wait(0.2)
+ Notification:Notify( 
+     {Title = "小江"}, 
+     {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 10, Type = "image"}, 
+     {Image = "http://www.roblox.com/asset/?id=4483345998", ImageColor = Color3.fromRGB(255, 84, 84)} 
+ )
+ wait(0.4)
+ 
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Frame.BackgroundTransparency = 0.500
+Frame.Position = UDim2.new(0.858712733, 0, 0.0237762257, 0)
+Frame.Size = UDim2.new(0.129513338, 0, 0.227972031, 0)
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 1.000
+TextButton.Size = UDim2.new(1, 0, 1, 0)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "关闭"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 50.000
+TextButton.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextStrokeTransparency = 0.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1Down:Connect(function()
+    if TextButton.Text == "关闭" then
+        TextButton.Text = "打开"
+    else
+        TextButton.Text = "关闭"
+    end
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "E" , false , game)
+end) -- replace "E" with your keybind
+
+UITextSizeConstraint.Parent = TextButton
+UITextSizeConstraint.MaxTextSize = 30
+
+local lib = loadstring(game:HttpGet"https://pastebin.com/raw/aDQ86WZA")()
+
+local win = lib:Window("火箭发射模拟器",Color3.fromRGB(0, 255, 0), Enum.KeyCode.E) -- your own keybind 
+
+local tab = win:Tab("主要功能")
+
+local isFuelScoopEnabled = false
+
+tab:Toggle("自动收集燃料", false, function(Value)
+    isFuelScoopEnabled = Value
+end)
+
+while true do
+    wait()
+
+    if isFuelScoopEnabled then
+        for i, h in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if h:IsA("Tool") and h.Name == "FuelScoop" then
+                h:Activate()
+            end
+        end
+    end
+end
